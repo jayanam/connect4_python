@@ -7,9 +7,11 @@ class Board:
     self.COLUMNS = 7
     self.clear()
 
+  # Clear the board
   def clear(self):
     self._grid = [[None for i in range(self.COLUMNS)] for j in range(self.ROWS)]   
 
+  # Check in all directions if a player has won (4 connected)
   def check_player_wins(self, player):
 
     id = player.get_id()
@@ -40,6 +42,10 @@ class Board:
 
     return False
 
+  # A player adds a new chip to a column of the board
+  # The first free row is calculated, if the column is
+  # full -1 is returns, otherwise the row to which the 
+  # chip has been added
   def add_chip(self, player, column):
 
     for row in range(self.ROWS):

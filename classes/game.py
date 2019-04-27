@@ -85,6 +85,8 @@ class Game:
 
     while not done:
 
+      update_ui = False
+
       # check for player input events
       for event in pygame.event.get():
 
@@ -107,14 +109,17 @@ class Game:
               self.restart()
 
           else:
+
+            # Try to insert to a column
             column = (event.key - 49)
             if column+1 in valid_keys:
+
               row = self.add_chip(column)
+
+              # Adding a chip wa possible
               if row > -1:
                 player_won = self.check_player_wins(self.get_current_player())
                 update_ui = True
-            else:
-              update_ui = False
 
       # UI has to be updated
       if update_ui:
@@ -125,8 +130,6 @@ class Game:
         else:
           self.switch_player()
           self._gameUI.draw_player()
-
-        update_ui = False
         
 
   def switch_player(self):
