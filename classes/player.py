@@ -9,7 +9,7 @@ class Player:
         if self._id == 0:
             return (255,0,0)
         else:
-            return (0,255,0)
+            return (255,255,0)
 
     def get_name(self):
         if self._id == 0:
