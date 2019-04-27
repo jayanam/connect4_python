@@ -34,7 +34,7 @@ class Board:
         if self._grid[r][c] == id and self._grid[r+1][c+1] == id and self._grid[r+2][c+2] == id and self._grid[r+3][c+3] == id:
           return True
 
-    # Check negavtive diagonal
+    # Check negative diagonal
     for c in range(self.COLUMNS-3):
       for r in range(3, self.ROWS):
         if self._grid[r][c] == id and self._grid[r-1][c+1] == id and self._grid[r-2][c+2] == id and self._grid[r-3][c+3] == id:
